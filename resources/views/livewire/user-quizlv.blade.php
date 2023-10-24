@@ -5,11 +5,11 @@
     <div class="px-4 -py-3 sm:px-6 ">
         <div class="flex max-w-auto justify-between">
             <h1 class="text-sm leading-6 font-medium text-gray-900">
-                <span class="text-gray-400 font-extrabold p-1">User</span>
+                <span class="text-gray-400 font-extrabold p-1">Người dùng</span>
                 <span class="font-bold p-2 leading-loose bg-blue-500 text-white rounded-lg">{{Auth::user()->name}}</span>
             </h1>
             <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                <span class="text-gray-400 font-extrabold p-1">Quiz Progress </span>
+                <span class="text-gray-400 font-extrabold p-1">Quá trình làm </span>
                 <span class="font-bold p-3 leading-loose bg-blue-500 text-white rounded-full">{{$count .'/'. $quizSize}}</span>
             </p>
         </div>
@@ -23,7 +23,7 @@
                     <div x-data={show:false} class="block text-xs">
                         <div class="p-1" id="headingOne">
                             <button @click="show=!show" class="underline text-blue-500 hover:text-blue-700 focus:outline-none text-xs px-3" type="button">
-                                Explanation
+                                Giải thích
                             </button>
                         </div>
                         <div x-show="show" class="block p-2 bg-green-100 text-xs">
@@ -42,11 +42,11 @@
             </div>
             <div class="flex items-center justify-end mt-4">
                 @if($count < $quizSize) <button wire:click="nextQuestion" type="submit" @if($isDisabled) disabled='disabled' @endif class="m-4 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
-                    {{ __('Next Question') }}
+                    {{ __('Câu hỏi tiếp theo') }}
                     </button>
                     @else
                     <button wire:click="nextQuestion" type="submit" @if($isDisabled) disabled='disabled' @endif class="m-4 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition">
-                        {{ __('Show Results') }}
+                        {{ __('Hiển thị kết quả') }}
                     </button>
                     @endif
             </div>
@@ -60,8 +60,8 @@
         <div class="bg-white border-2 border-gray-300 shadow overflow-hidden sm:rounded-lg">
             <div class="container px-5 py-5 mx-auto">
                 <div class="text-center mb-5 justify-center">
-                    <h1 class=" sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">Quiz Result</h1>
-                    <p class="text-md mt-10"> Dear <span class="font-extrabold text-blue-600 mr-2"> {{Auth::user()->name.'!'}} </span> You have secured <a class="bg-green-300 px-2 mx-2 hover:green-400 rounded-lg underline" href="{{route('userQuizDetails',$quizid) }}">Show quiz details</a></p>
+                    <h1 class=" sm:text-3xl text-2xl font-medium text-center title-font text-gray-900 mb-4">Kết quả bài làm</h1>
+                    <p class="text-md mt-10"> Gửi <span class="font-extrabold text-blue-600 mr-2"> {{Auth::user()->name.'!'}} </span> Bạn đã ghi lại <a class="bg-green-300 px-2 mx-2 hover:green-400 rounded-lg underline" href="{{route('userQuizDetails',$quizid) }}">Hiển thị bài làm chi tiết</a></p>
                     <progress class="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto" id="quiz-{{$quizid}}" value="{{$quizPecentage}}" max="100"> {{$quizPecentage}} </progress> <span> {{$quizPecentage}}% </span>
                 </div>
                 <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
@@ -71,7 +71,7 @@
                                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
                                 <path d="M22 4L12 14.01l-3-3"></path>
                             </svg>
-                            <span class="title-font font-medium mr-5 text-purple-700">Correct Answers</span><span class="title-font font-medium">{{$currectQuizAnswers}}</span>
+                            <span class="title-font font-medium mr-5 text-purple-700">Câu trả lời đúng</span><span class="title-font font-medium">{{$currectQuizAnswers}}</span>
                         </div>
                     </div>
                     <div class="p-2 sm:w-1/2 w-full">
@@ -80,7 +80,7 @@
                                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
                                 <path d="M22 4L12 14.01l-3-3"></path>
                             </svg>
-                            <span class="title-font font-medium mr-5 text-purple-700">Total Questions</span><span class="title-font font-medium">{{$totalQuizQuestions}}</span>
+                            <span class="title-font font-medium mr-5 text-purple-700">Tổng số câu hỏi</span><span class="title-font font-medium">{{$totalQuizQuestions}}</span>
                         </div>
                     </div>
                     <div class="p-2 sm:w-1/2 w-full">
@@ -89,7 +89,7 @@
                                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
                                 <path d="M22 4L12 14.01l-3-3"></path>
                             </svg>
-                            <span class="title-font font-medium mr-5 text-purple-700">Percentage Scored</span><span class="title-font font-medium">{{$quizPecentage.'%'}}</span>
+                            <span class="title-font font-medium mr-5 text-purple-700">Tỉ lệ điểm đạt được</span><span class="title-font font-medium">{{$quizPecentage.'%'}}</span>
                         </div>
                     </div>
                     <div class="p-2 sm:w-1/2 w-full">
@@ -98,13 +98,13 @@
                                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
                                 <path d="M22 4L12 14.01l-3-3"></path>
                             </svg>
-                            <span class="title-font font-medium mr-5 text-purple-700">Quiz Status</span><span class="title-font font-medium">{{ $quizPecentage > 70 ? 'Pass' : 'Fail' }}</span>
+                            <span class="title-font font-medium mr-5 text-purple-700">Trạng thái bài</span><span class="title-font font-medium">{{ $quizPecentage > 70 ? 'Đạt' : 'Không đạt' }}</span>
                         </div>
                     </div>
                 </div>
                 <div class="mx-auto min-w-full p-2 md:flex m-2 justify-between">
-                    <a href="{{route('userQuizDetails',$quizid) }}" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">See Quizzes Details</a>
-                    <a href="{{route('userQuizHome')}}" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">See All Your Quizzes</a>
+                    <a href="{{route('userQuizDetails',$quizid) }}" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Xem chi tiết bài làm</a>
+                    <a href="{{route('userQuizHome')}}" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Xem tất cả bài làm của bạn</a>
                 </div>
             </div>
         </div>
@@ -123,7 +123,7 @@
                         <p class="leading-relaxed mb-6">{{$quote->quote}}</p>
                         <a class="inline-flex items-center">
                             <span class="flex-grow flex flex-col">
-                                <span class="title-font font-medium text-gray-900">Author</span>
+                                <span class="title-font font-medium text-gray-900">Tác giả</span>
                                 <span class="inline-block h-1 w-18 rounded bg-indigo-500 mt-2 mb-1"></span>
                                 <span class="text-gray-500 text-sm">{{$quote->author}}</span>
                             </span>
@@ -133,13 +133,13 @@
                 <div class="p-4 md:w-1/2 w-full">
                     <form wire:submit.prevent="startQuiz">
                         @csrf
-                        <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Take a Quiz</h2>
+                        <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Làm bài test</h2>
                         <div class="relative mx-full mb-4">
                             <select name="section" id="section_id" wire:model="sectionId" class="block w-full mt-1 rounded-md bg-gray-100 border-2 border-gray-500 focus:bg-white focus:ring-0">
                                 @if($sections->isEmpty())
                                 <option value="">No Quiz Sections Available Yet</option>
                                 @else
-                                <option value="">Select a Quiz Section</option>
+                                <option value="">Chọn phần test</option>
                                 @foreach($sections as $section)
                                 @if($section->questions_count>0)
                                 <option value="{{$section->id}}">{{$section->name}}</option>
@@ -155,7 +155,7 @@
                             </div>
                             <div class="ml-3 text-sm">
                                 <label for="learningMode" class="font-medium text-gray-700">Learning Mode?</label>
-                                <p class="text-gray-500">If checked, this will enable explanation tab for each question.</p>
+                                <p class="text-gray-500">Nếu được bật sẽ hiện thị phần giải thích cho mỗi questions.</p>
                             </div>
                         </div>
                         <div class="relative mb-4">
@@ -164,7 +164,7 @@
                             </select>
                             @error('quizSize') <span class="text-red-400 text-xs">{{ $message }}</span> @enderror
                         </div>
-                        <button type="submit" class="block w-full text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Start Quiz</button>
+                        <button type="submit" class="block w-full text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Bắt đầu làm</button>
                     </form>
                 </div>
             </div>

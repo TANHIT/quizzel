@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="md:flex justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Section Details') }}
+                {{ __('Chi tiết Phần') }}
             </h2>
         </div>
     </x-slot>
@@ -23,10 +23,10 @@
                                     <thead class="tracking-wide font-bold rounded border-2 bg-green-500 text-white  transition shadow-md py-2 px-6 items-center">
                                         <tr>
                                             <th scope=" col" class="px-6 py-3 text-left text-xs font-extrabold  uppercase tracking-wider">
-                                                Item
+                                                Mục
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-extrabold  uppercase tracking-wider">
-                                                Details
+                                                Chi tiết
                                             </th>
                                         </tr>
                                     </thead>
@@ -36,7 +36,7 @@
                                                 <div class="flex items-center">
                                                     <div class="ml-4">
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            Name
+                                                            Tên
                                                         </div>
                                                     </div>
                                                 </div>
@@ -50,7 +50,7 @@
                                                 <div class="flex items-center">
                                                     <div class="ml-4">
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            Description
+                                                            Mô tả
                                                         </div>
                                                     </div>
                                                 </div>
@@ -64,13 +64,13 @@
                                                 <div class="flex items-center">
                                                     <div class="ml-4">
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            Status
+                                                            Trạng thái
                                                         </div>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4 ">
-                                                <div class="text-sm text-gray-900">{{ $section->is_active === '1'  ? 'Active' : 'Not Active' }}</div>
+                                                <div class="text-sm text-gray-900">{{ $section->is_active === '1'  ? 'Hoạt đông' : 'Không hoạt động' }}</div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -78,7 +78,7 @@
                                                 <div class="flex items-center">
                                                     <div class="ml-4">
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            Details
+                                                            Chi tiết
                                                         </div>
                                                     </div>
                                                 </div>
@@ -92,7 +92,7 @@
                                                 <div class="flex items-center">
                                                     <div class="ml-4">
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            Created By
+                                                            Tạo bởi
                                                         </div>
                                                     </div>
                                                 </div>
@@ -113,10 +113,10 @@
                 @if($questions->isEmpty())
                 <div class="px-4 py-5 my-3 sm:px-6">
                     <h1 class="text-sm leading-6 font-medium text-gray-900">
-                        No question under this section are found!
+                        Không có câu hỏi trong phần này được tìm thấy!
                     </h1>
                     <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                        Create some questions, they will appear here!
+                        Tạo một số câu hỏi, chúng sẽ xuất hiện ở đây!
                     </p>
                 </div>
                 @else
@@ -128,13 +128,13 @@
                                     <thead class="tracking-wide font-bold rounded border-2 bg-green-500 text-white  transition shadow-md py-2 px-6 items-center">
                                         <tr>
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
-                                                Name
+                                                Tên
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
-                                                Status
+                                                Trạng thái
                                             </th>
                                             <th scope="col" class="relative px-6 py-3">
-                                                <span class="sr-only">Edit</span>
+                                                <span class="sr-only">Chỉnh sửa</span>
                                             </th>
                                         </tr>
                                     </thead>
@@ -153,7 +153,7 @@
                                                 </div>
                                             </td>
                                             <td class="px-6 py-1">
-                                                <div class="text-sm text-gray-900">{{ $question->is_active === '1'  ? 'Yes' : 'No' }}</div>
+                                                <div class="text-sm text-gray-900">{{ $question->is_active === '1'  ? 'Có' : 'Không' }}</div>
                                             </td>
                                             <td class="sm:flex align-middle justify-center items-center px-6 py-1 text-right text-sm font-medium">
                                                 <a href="{{ route('createQuestion', $section->id )}}" class="text-green-500 hover:text-green-700">

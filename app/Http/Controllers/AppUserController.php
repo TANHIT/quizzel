@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Trait\time;
 use App\Models\Quiz;
 use App\Models\User;
 use App\Models\Section;
 use App\Models\Question;
 use App\Models\QuizHeader;
+use Illuminate\Support\Carbon;
 
 class AppUserController extends Controller
 {
+    use time;
     public function startQuiz()
     {
         return view('appusers.quiz');
     }
-
+  
     public function userQuizHome()
     {
         $activeUsers = User::count();

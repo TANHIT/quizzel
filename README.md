@@ -56,7 +56,7 @@ Password: adminadmin
 
 
 ```
-Register a new user and login -> Take a Quiz
+Register a new user and login -> Làm bài test
 
 ```
 ## License

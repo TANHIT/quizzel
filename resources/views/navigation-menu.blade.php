@@ -14,15 +14,15 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     @hasrole('admin')
                     <x-jet-nav-link href="{{ route('adminhome') }}" :active="request()->routeIs('adminhome')">
-                        {{ __('Admin Home') }}
+                        {{ __('Trang chủ Admin') }}
                     </x-jet-nav-link>
                     @endhasrole
                     @hasrole('user|admin|superadmin')
                     <x-jet-nav-link href="{{ route('startQuiz') }}" :active="request()->routeIs('startQuiz')">
-                        {{ __('Take Quiz') }}
+                        {{ __('Làm bài') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('userQuizHome') }}" :active="request()->routeIs('userQuizHome')">
-                        {{ __('User Quiz Home') }}
+                        {{ __('Câu hỏi') }}
                     </x-jet-nav-link>
                     @endhasrole
                 </div>
@@ -103,11 +103,11 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
+                                {{ __('Quản lý tài khoản') }}
                             </div>
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                                {{ __('Thông tin tài khoản') }}
                             </x-jet-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -124,7 +124,7 @@
 
                                 <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Đăng xuất') }}
                                 </x-jet-dropdown-link>
                             </form>
                         </x-slot>
@@ -149,15 +149,15 @@
         <div class="pt-2 pb-3 space-y-1">
             @hasrole('admin')
             <x-jet-responsive-nav-link href="{{ route('adminhome') }}" :active="request()->routeIs('adminhome')">
-                {{ __('Admin Home') }}
+                {{ __('Trang chủ Admin') }}
             </x-jet-responsive-nav-link>
             @endhasrole
             @hasrole('user|admin|superadmin')
             <x-jet-responsive-nav-link href="{{ route('startQuiz') }}" :active="request()->routeIs('startQuiz')">
-                {{ __('Take Quiz') }}
+                {{ __('Làm bài') }}
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('userQuizHome') }}" :active="request()->routeIs('userQuizHome')">
-                {{ __('User Quiz Home') }}
+                {{ __('questions') }}
             </x-jet-responsive-nav-link>
             @endhasrole
         </div>
@@ -180,7 +180,7 @@
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    {{ __('Profile') }}
+                    {{ __('Thông tin tài khoản') }}
                 </x-jet-responsive-nav-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())

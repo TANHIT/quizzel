@@ -32,6 +32,6 @@ class GlobalQuizzes extends BaseChart
 
         return Chartisan::build()
             ->labels($ids)
-            ->dataset('Global Quiz Stats', $scores);
+            ->dataset('Thống kê câu hỏi toàn bộ', $scores);
     }
 }

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Section Detail') }}
+            {{ __('Chi tiết Phần') }}
         </h2>
     </x-slot>
     <div class="max-w-7xl m-4 mx-auto sm:px-6 lg:px-8">
@@ -12,7 +12,7 @@
                         @csrf
                         <button type="submit">
                             <a class="tracking-wide font-bold rounded border-2 border-blue-500 hover:border-blue-500 bg-blue-500 text-white hover:bg-blue-600 transition shadow-md py-2 px-6 items-center">
-                                Delete Question
+                                Xóa câu hỏi
                             </a>
                         </button>
                     </form>
@@ -28,10 +28,10 @@
                                     <thead class="tracking-wide font-bold rounded border-2 bg-green-500 text-white  transition shadow-md py-2 px-6 items-center">
                                         <tr>
                                             <th scope=" col" class="px-6 py-3 text-left text-xs font-extrabold  uppercase tracking-wider">
-                                                Item
+                                                Mục
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-extrabold  uppercase tracking-wider">
-                                                Details
+                                                Chi tiết
                                             </th>
                                         </tr>
                                     </thead>
@@ -41,7 +41,7 @@
                                                 <div class="flex items-center">
                                                     <div class="ml-4">
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            Question
+                                                            Câu hỏi
                                                         </div>
                                                     </div>
                                                 </div>
@@ -55,7 +55,7 @@
                                                 <div class="flex items-center">
                                                     <div class="ml-4">
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            Explanation
+                                                            Giải thích
                                                         </div>
                                                     </div>
                                                 </div>
@@ -69,13 +69,13 @@
                                                 <div class="flex items-center">
                                                     <div class="ml-4">
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            Status
+                                                            Trạng thái
                                                         </div>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4">
-                                                <div class="text-sm text-gray-900">{{ $question->is_active === '1'  ? 'Active' : 'Not Active' }}</div>
+                                                <div class="text-sm text-gray-900">{{ $question->is_active === '1'  ? 'Hoạt động' : 'Không hoạt động' }}</div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -83,7 +83,7 @@
                                                 <div class="flex items-center">
                                                     <div class="ml-4">
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            Details
+                                                            Chi tiết
                                                         </div>
                                                     </div>
                                                 </div>
@@ -97,7 +97,7 @@
                                                 <div class="flex items-center">
                                                     <div class="ml-4">
                                                         <div class="text-sm font-medium text-gray-900">
-                                                            Created By
+                                                            Tạo bởi
                                                         </div>
                                                     </div>
                                                 </div>
@@ -120,10 +120,10 @@
                         <thead class="tracking-wide font-bold rounded border-2 bg-green-500 text-white  transition shadow-md py-2 px-6 items-center">
                             <tr class="max-w-auto">
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
-                                    Answer
+                                    Câu trả lời
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
-                                    Choice
+                                    Chọn
                                 </th>
                             </tr>
                         </thead>

@@ -141,7 +141,7 @@
             </x-jet-secondary-button>
 
             <x-jet-button class="ml-2" wire:click="updateApiToken" wire:loading.attr="disabled">
-                {{ __('Save') }}
+                {{ __('Lưu') }}
             </x-jet-button>
         </x-slot>
     </x-jet-dialog-modal>

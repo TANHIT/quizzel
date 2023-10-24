@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="md:flex justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Section Home') }}
+                {{ __('Phần Trang chủ') }}
             </h2>
         </div>
     </x-slot>
@@ -17,10 +17,10 @@
                 @if($sections->isEmpty())
                 <div class="px-4 py-5 sm:px-6">
                     <h1 class="text-sm leading-6 font-medium text-gray-900">
-                        No Sections found!
+                        Không tìm thấy Phần!
                     </h1>
                     <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                        Looks like you have just landed! Once you have created any sections, they will be listed here.
+                        Có vẻ như bạn vừa hoàn thành! Khi bạn đã tạo bất kỳ phần nào, chúng sẽ được liệt kê ở đây.
                     </p>
                 </div>
                 @else
@@ -33,16 +33,16 @@
                                     <thead class="tracking-wide font-bold rounded border-2 bg-green-500 text-white  transition shadow-md py-2 px-6 items-center">
                                         <tr>
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
-                                                Name
+                                                Tên
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
-                                                Published
+                                                Xuất bản
                                             </th>
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-white uppercase tracking-wider">
-                                                Questions
+                                                Câu hỏi
                                             </th>
                                             <th scope="col" class="relative px-6 py-3">
-                                                <span class="sr-only">Edit</span>
+                                                <span class="sr-only">Chỉnh sửa</span>
                                             </th>
                                         </tr>
                                     </thead>

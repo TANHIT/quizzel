@@ -32,6 +32,6 @@ class MonthlyUsers extends BaseChart
         }
         return Chartisan::build()
             ->labels($dates)
-            ->dataset('Site Users Per Day', $usercount);
+            ->dataset('Người dùng dùng mỗi ngày', $usercount);
     }
 }

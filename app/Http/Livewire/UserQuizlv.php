@@ -106,10 +106,10 @@ class UserQuizlv extends Component
             ->inRandomOrder()
             ->first();
 
-        //If the quiz size is greater then actual questions available in the quiz sections,
+        //If the Số lượng test is greater then actual questions available in the quiz sections,
         //Finish the quiz and take the user to results page on exhausting all question from a given section.
         if ($question === null) {
-            //Update quiz size to curret count as we have ran out of quesitons and forcing user to end the quiz ;)
+            //Update Số lượng test to curret count as we have ran out of quesitons and forcing user to end the quiz ;)
             $this->quizid->quiz_size = $this->count - 1;
             $this->quizid->save();
             return $this->showResults();
