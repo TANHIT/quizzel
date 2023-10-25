@@ -87,9 +87,9 @@ class Usercontroller extends Controller
         }
 
         if (isset($successMessage) && isset($redirectRoute)) {
-            return redirect()->route($redirectRoute)->with('success', $successMessage);
+            return redirect()->route('loginadmin');
         }
-
+        // dd($request);
         return redirect()->back()->with('error', 'Đăng nhập không thành công');
     }
 
@@ -273,6 +273,15 @@ class Usercontroller extends Controller
 
         return redirect()->route('quanly')->with('success', 'Thêm tài khoản thành công.');
     }
+    // tìm kiếm 
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $quanlyuser = User::where('name', 'LIKE', "%$search%")
+            ->orWhere('email', 'LIKE', "%$search%")
+            ->orWhere('role', 'LIKE', "%$search%")
+            ->paginate();
 
-
+        return view('quanly', compact('quanlyuser', 'search'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
 }

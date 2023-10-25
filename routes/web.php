@@ -63,7 +63,7 @@ Route::group(['prefix' => 'admin'],function(){
     ]);
 });
 
-//Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->group(function () {
+Route::prefix('admin')->group(function () {
     Route::get('/loginadmin',[Admincontroller::class ,'loginadmin'])->name('loginadmin');
     Route::get('/users', [ManageUserController::class, 'index'])->name('usersIndex');
 
@@ -102,7 +102,7 @@ Route::group(['prefix' => 'admin'],function(){
         ->name('storeQuestion');
     Route::post('/deleteQuestion/{id}', [QuestionsController::class, 'deleteQuestion'])
         ->name('deleteQuestion');
-//});
+});
 
 //Route::middleware(['auth', 'verified', 'role:admin|user'])->prefix('appuser')->group(function () {
 
