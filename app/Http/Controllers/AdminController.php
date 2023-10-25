@@ -19,6 +19,14 @@ class AdminController extends Controller
         $latestUsers = User::latest()->take(5)->get();
         return view('admins.adminhome', compact('latestUsers', 'sectionCount', 'questionCount', 'userCount', 'quizCount'));
     }
+    public function loginadmin(){
+        return view('loginadmin');
+    }
+
+
+    public function dashboard(){
+        return view('layouts.admin');
+    }
 
     public function globalQuizzes()
     {
