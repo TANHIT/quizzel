@@ -2,6 +2,7 @@
 
 @section('main')
 <div class="container">
+
     <div class="row">
         <div class="col">
             <h1 class="my-4">Quản lý tài khoản</h1>
@@ -11,21 +12,31 @@
         </div>
     </div>
 
+    <form action="{{ route('quanly.search') }}" method="GET" class="form-inline">
+        <div class="form-group">
+            <input type="text" class="form-control" name="search" placeholder="Tìm kiếm" value="{{ isset($search) ? $search : '' }}">
+        </div>
+        <button type="submit" class="btn btn-primary">
+            <i class="fas fa-search"></i>
+        </button>
+    </form>
+
     <div class="table-container">
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>STT</th>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Password</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($quanlyuser as $ql)
+        @if ($quanlyuser->count() > 0)
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Password</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($quanlyuser as $ql)
                     <tr>
                         <td>{{ ++$i }}</td>
                         <td>{{ $ql->id }}</td>
@@ -42,12 +53,16 @@
                             <a href="{{ route('quanly.edit', ['id' => $ql->id]) }}" class="btn btn-primary btn-sm btn-hover">Sửa</a>
                         </td>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <div class="pagination-container">
-            {{ $quanlyuser->links() }}
-        </div>
+                    @endforeach
+                </tbody>
+            </table>
+
+            <div class="pagination-container">
+                {{ $quanlyuser->links() }}
+            </div>
+        @else
+            <p>Không tìm thấy kết quả.</p>
+        @endif
     </div>
 </div>
 
@@ -79,21 +94,6 @@
 
     .table-container .btn-hover:hover {
         /* Định dạng hiệu ứng hover ở đây */
-    }
-
-    .table-container .table-fade {
-        opacity: 0;
-        transition: opacity 0.5s;
-    }
-
-    .table-container .table-fade.fade-in {
-        opacity: 1;
-    }
-
-    .pagination-container {
-        margin-top: 20px;
-        display: flex;
-        justify-content: center;
     }
 </style>
 

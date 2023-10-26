@@ -46,7 +46,10 @@ Route::put('/quanly/update/{id}', [UserController::class, 'update'])->name('quan
 Route::get('quanly/add', [UserController::class, 'quanlyadd'])->name('quanly.add');
 Route::post('quanly/store', [UserController::class, 'store'])->name('quanly.store');
 
+// routes/web.php
 
+Route::get('/quanly/search',  [UserController::class, 'search'])->name('quanly.search');
+///
 Route::get('/now',[Usercontroller::class ,'now'])->name('now');
 
 

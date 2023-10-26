@@ -5,7 +5,7 @@ namespace App\Providers;
 use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 use ConsoleTVs\Charts\Registrar as Charts;
-
+use  Illuminate\Pagination\Paginator;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -29,6 +29,10 @@ class AppServiceProvider extends ServiceProvider
             \App\Charts\UserQuiz::class,
             \App\Charts\GlobalQuizzes::class,
             \App\Charts\MonthlyUsers::class,
+            
         ]);
+        Paginator::useBootstrap();
+        
     }
+    
 }

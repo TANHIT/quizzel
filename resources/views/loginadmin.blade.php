@@ -24,6 +24,7 @@
 
         .button-container button {
             margin-right: 10px;
+            border-radius: 10px;
         }
         .avtar{
             width:100%;
@@ -32,7 +33,7 @@
         .avtar i {
             font-size: 3rem; /* Thay đổi kích thước biểu tượng */
         }
-      
+       
     </style>
 </head>
 <body>

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Session;
 class Usercontroller extends Controller
 {
@@ -78,16 +79,23 @@ class Usercontroller extends Controller
                 $redirectRoute = 'home';
             } elseif ($user->role === 1) {
                 session(['role' => 1]);
-                $successMessage = 'Đăng nhập thành công';
-                $redirectRoute = 'loginadmin';
-            }
+                $successMessage1 = 'Đăng nhập thành công';
+                $redirectRoute1 = 'loginadmin';
+               
+            } 
         } else {
             // Kiểm tra mật khẩu không hợp lệ
+
             return redirect()->back()->with('error', 'Mật khẩu không đúng.');
         }
 
-        if (isset($successMessage) && isset($redirectRoute)) {
+        if (isset($successMessage1) && isset($redirectRoute1)) {
+
             return redirect()->route('loginadmin');
+        }  
+        if (isset($successMessage) && isset($redirectRoute)) {
+            
+            return redirect()->route('home');
         }
         // dd($request);
         return redirect()->back()->with('error', 'Đăng nhập không thành công');
@@ -190,7 +198,7 @@ class Usercontroller extends Controller
     }
     //quản lý
     public function quanlyuser(){
-        $quanlyuser = User::paginate();
+        $quanlyuser = User::paginate(5);
         return view('quanly',compact('quanlyuser'))->with('i',(request()->input('page',1)-1)*5);
 
 
@@ -284,4 +292,5 @@ class Usercontroller extends Controller
 
         return view('quanly', compact('quanlyuser', 'search'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
+    
 }

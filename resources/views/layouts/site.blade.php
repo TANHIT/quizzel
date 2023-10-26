@@ -16,7 +16,7 @@
 
 			<!-- Header -->
 				<header id="header">
-					<h1 id="logo"><a href="index.html">Landed</a></h1>
+					<h1 id="logo"><a href="{{route('home')}}">EnglishWeb</a></h1>
 					<nav id="nav">
 						<ul>
 							<li><a href="{{route('word.search')}}">Tìm kiếm từ vựng</a></li>
@@ -24,8 +24,8 @@
 							<li>
 								<a href="#">Layouts</a>
 								<ul>
-									<li><a href="left-sidebar.html">Left Sidebar</a></li>
-									<li><a href="right-sidebar.html">Right Sidebar</a></li>
+									<li><a href="left-sidebar.html">test1 </a></li>
+									<li><a href="right-sidebar.html">test2</a></li>
 									<li><a href="{{route('now')}}">No Sidebar</a></li>
 									<li>
 										<a href="#">Submenu</a>
@@ -38,13 +38,28 @@
 									</li>
 								</ul>
 							</li>
-							<li><a href="elements.html">Elements</a></li>
-							<li><a href="{{route('register')}}" class="button primary">Sign Up</a></li>
+							<li><a href="{{route('startQuiz')}}">testonline</a></li>
+
+							<li>
+							@if(Auth::check())	
+							<a href="" class="button primary">{{Auth::user()->name}}</a>
+							
+							@else
+							<a href="{{route('register')}}" class="button primary">Sigin in</a>
+							@endif
+
+								<ul>
+									<li><a href="{{route('logout')}}">logout</a></li>
+									<li><a href="">setting</a></li>
+								
+								</ul>
+
+							</li>
 						</ul>
 					</nav>
 				</header>
 				<div class="wrapper">
-					@yield('test');
+					@yield('test')
 				</div>
 			<!-- Footer -->
 				<footer id="footer">
