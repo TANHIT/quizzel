@@ -9,6 +9,7 @@ use App\Models\Section;
 use App\Models\Question;
 use App\Models\QuizHeader;
 use Illuminate\Support\Carbon;
+use  Illuminate\Contracts\Auth\Authenticatable;
 
 class AppUserController extends Controller
 {

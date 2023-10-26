@@ -28,7 +28,7 @@ Route::get('/login',[Usercontroller::class ,'login'])->name('login');
 Route::post('/login',[Usercontroller::class ,'postlogin'])->name('postlogin');
 Route::get('/register',[Usercontroller::class ,'register'])->name('register');//name để gọi qua route
 Route::post('/register',[Usercontroller::class ,'postregister']);
-Route::get('/logout',[Usercontroller::class ,'logout'])->name('logout');
+Route::get('/logout',[Usercontroller::class ,'logout'])->name('logoutt');
 
 //retset-password
 Route::get('/forget-password',[Usercontroller::class ,'forgetpassword'])->name('forgetpassword');
@@ -107,7 +107,7 @@ Route::prefix('admin')->group(function () {
         ->name('deleteQuestion');
 });
 
-//Route::middleware(['auth', 'verified', 'role:admin|user'])->prefix('appuser')->group(function () {
+Route::middleware(['auth', 'verified'])->prefix('appuser')->group(function () {
 
     Route::get('/userQuizHome', [AppUserController::class, 'userQuizHome'])
         ->name('userQuizHome');
@@ -120,4 +120,4 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/startQuiz', [AppUserController::class, 'startQuiz'])
         ->name('startQuiz');
-//});
+});
