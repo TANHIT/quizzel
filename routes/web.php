@@ -10,7 +10,7 @@ use App\Http\Controllers\Usercontroller;
 use App\Http\Controllers\Admincontroller;
 use App\Http\Controllers\Typecontroller;
 use App\Http\Controllers\Wordcontroller;
-
+use App\Http\Controllers\Videocontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -121,3 +121,26 @@ Route::middleware(['auth', 'verified'])->prefix('appuser')->group(function () {
     Route::get('/startQuiz', [AppUserController::class, 'startQuiz'])
         ->name('startQuiz');
 });
+// video 
+Route::get('admin/quanlyvideo',  [Videocontroller::class ,'quanlyvideo'])->name('videos.quanlyvideo');
+Route::get('/admin/videos', [Videocontroller::class ,'index'])->name('videos.index');
+Route::post('/admin/videos',[Videocontroller::class ,'store'])->name('videos.store');
+//
+Route::delete('/videos/{video}', [Videocontroller::class ,'destroy'])->name('videos.destroy');
+Route::get('videos/{video}/edit',  [Videocontroller::class ,'edit'])->name('videos.edit');
+Route::put('videos/{video}',  [Videocontroller::class ,'update'])->name('videos.update');
+Route::get('/videos/search', [Videocontroller::class ,'search'])->name('videos.search');
+
+Route::get('/videos/listvideo', [Videocontroller::class ,'listvideo'])->name('videos.listvideo');
+
+Route::get('/videos/{video}', [Videocontroller::class ,'show'])->name('videos.show');
+// đăng ký xem video 
+Route::get('/videos/register/{video_id}', [VideoController::class,'register'])->name('videos.register');
+Route::post('/videos/register/{video_id}', [VideoController::class,'register'])->name('videos.register.post');
+
+Route::get('/admin/quanlynguoixem', [VideoController::class,'quanlynguoixem'])->name('videos.quanlynguoixem');
+
+Route::get('/admin/search/user', [VideoController::class,'searchuser'])->name('videos.searchuser');
+Route::put('/admin/approve/{id}', [VideoController::class,'approve'])->name('videos.approve');
+Route::put('/admin/reject/{id}', [VideoController::class,'reject'])->name('videos.reject');
+Route::delete('/admin/reject/{id}', [VideoController::class,'delete'])->name('videos.delete');

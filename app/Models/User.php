@@ -11,7 +11,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
-
+use App\Models\Video;
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -86,4 +86,12 @@ class User extends Authenticatable
             ->orWhere('name', 'like', '%' . $search . '%')
             ->orWhere('email', 'like', '%' . $search . '%');
     }
+    // đăng ký video
+    public function registeredCourses()
+    {
+        return $this->belongsToMany(Video::class, 'course_registrations', 'user_id', 'video_id');
+    }
+
+ 
+    
 }

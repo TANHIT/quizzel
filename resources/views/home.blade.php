@@ -143,6 +143,7 @@
 	
 		</div>
 
-		@endsection
+		
 	</body>
 </html>
+@endsection

@@ -46,7 +46,7 @@
           <img src="{{url('/ad111')}}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
@@ -154,6 +154,33 @@
                         <a href="{{route('usersIndex')}}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Quản lý quizz </p>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Video
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{route('videos.quanlyvideo')}}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Quản lý video </p>
+                        </a>
+                    </li>
+
+                </ul>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{route('videos.quanlynguoixem')}}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Quản lý người xem </p>
                         </a>
                     </li>
 

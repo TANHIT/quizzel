@@ -21,9 +21,9 @@
 		<header id="header">
 			<h1 id="logo"><a href="{{route('home')}}">EnglishWeb</a></h1>
 			<nav id="nav">
-				<ul>
+				<ul><li><a href="index.html">Home</a></li>
 					<li><a href="{{route('word.search')}}">Tìm kiếm từ vựng</a></li>
-					<li><a href="index.html">Home</a></li>
+					<li><a href="{{route('videos.listvideo')}}">Khóa học</a></li>
 					<li>
 						<a href="#">Layouts</a>
 						<ul>
