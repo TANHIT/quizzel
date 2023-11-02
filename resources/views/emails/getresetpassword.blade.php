@@ -68,19 +68,21 @@
                                             </div>
 
                                             <div class="col-12">
-                                                <label>Password<span class="text-danger">*</span></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
-                                                    <input type="text" class="form-control" placeholder="Enter Password" name="password">
-                                                </div>
+                                            <label>Password<span class="text-danger">*</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
+                                                <input type="password" class="form-control" placeholder="Enter Password" name="password">
                                             </div>
-                                            <div class="col-12">
-                                                <label>Config Password<span class="text-danger">*</span></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
-                                                    <input type="text" class="form-control" placeholder="Enter Password" name="password">
-                                                </div>
+                                        </div>
+                                        
+                                        <div class="col-12">
+                                            <label>Confirm Password<span class="text-danger">*</span></label>
+                                            <div class="input-group">
+                                                <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
+                                                <input type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation">
                                             </div>
+                                            <div id="password-error" class="text-danger"></div>
+                                        </div>
 
                                       
 
@@ -107,4 +109,20 @@
     <!-- Bootstrap JS -->
      
 </body>
+<script>
+        const passwordInput = document.querySelector('input[name="password"]');
+        const confirmPasswordInput = document.querySelector('input[name="password_confirmation"]');
+        const passwordError = document.getElementById('password-error');
+
+        confirmPasswordInput.addEventListener('input', () => {
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+
+            if (password !== confirmPassword) {
+                passwordError.textContent = "Mật khẩu không khớp.";
+            } else {
+                passwordError.textContent = "";
+            }
+        });
+    </script>
 </html>

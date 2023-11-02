@@ -11,7 +11,8 @@ use App\Http\Controllers\Admincontroller;
 use App\Http\Controllers\Typecontroller;
 use App\Http\Controllers\Wordcontroller;
 use App\Http\Controllers\Videocontroller;
-
+use App\Http\Controllers\LoginController;
+use Laravel\Socialite\Facades\Socialite;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,13 @@ use App\Http\Controllers\Videocontroller;
 
 Route::get('/',[Homecontroller::class ,'home'])->name('home');
 Route::get('/login',[Usercontroller::class ,'login'])->name('login');
+// đăng nhập google
+Route::get('/logingoogle', [LoginController::class, 'logingoogle'])->name('logingoogle');
+Route::get('/auth/google/callback', [LoginController::class, 'googlehandle'])->name('google-callback');
+
+
+
+//
 Route::post('/login',[Usercontroller::class ,'postlogin'])->name('postlogin');
 Route::get('/register',[Usercontroller::class ,'register'])->name('register');//name để gọi qua route
 Route::post('/register',[Usercontroller::class ,'postregister']);

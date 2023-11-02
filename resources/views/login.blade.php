@@ -71,7 +71,7 @@
                                                 <label>Password<span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
-                                                    <input type="text" class="form-control" placeholder="Enter Password" name="password">
+                                                    <input type="password" class="form-control" placeholder="Enter Password" name="password">
                                                 </div>
                                             </div>
 
@@ -93,9 +93,25 @@
                                                     <a href="{{route('register')}}" class="form-check-label" for="inlineFormCheck">Register?</a>
                                                 </div>
                                             </div>
+                                           
 
                                             <div class="col-12">
                                                 <button type="submit" class="btn btn-primary px-4 float-end mt-4">login</button>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-check" style="text-align: center;">
+                                                    <a href="{{route('logingoogle')}}" class="form-check-label" for="inlineFormCheck">
+                                                        <img src="images/google.png" alt="Google Logo" style="width: 160px; height: 50px; margin: 0 auto; display: block;">
+                                                        <span style="display: block; margin-top: 5px; font-weight: bold; color: #4285F4;"></span>
+                                                    </a>
+                                                </div>
+                                            </div><div class="col-sm-6">
+                                                <div class="form-check" style="text-align: center;">
+                                                    <a href="{{route('logingoogle')}}" class="form-check-label" for="inlineFormCheck">
+                                                        <img src="images/facebook.png" alt="Google Logo" style="width: 200px; height: 50px; margin: 0 auto; display: block;">
+                                                        <span style="display: block; margin-top: 5px; font-weight: bold; color: #4285F4;"></span>
+                                                    </a>
+                                                </div>
                                             </div>
                                     </form>
                                 </div>
@@ -104,8 +120,11 @@
                                 <div class="form-right h-100 bg-primary text-white text-center pt-5">
                                     <i class="bi bi-bootstrap"></i>
                                     <h2 class="fs-1">Welcome English!!!</h2>
+                                    
                                 </div>
+                                 
                             </div>
+                            
                         </div>
                     </div>
                

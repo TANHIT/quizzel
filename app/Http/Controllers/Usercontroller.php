@@ -25,7 +25,15 @@ class Usercontroller extends Controller
 
     public function postregister(Request $request){
 
+        $request->merge(['password' => Hash::make($request->password)]);
 
+        // Kiểm tra xem email hoặc name đã được đăng ký chưa
+        $existingUser = User::where('email', $request->email)->orWhere('name', $request->name)->first();
+
+        if ($existingUser) {
+            // Nếu đã đăng ký, hiển thị thông báo lỗi và quay trở lại trang đăng ký
+            return redirect()->route('register')->with('error', 'Email hoặc tên người dùng đã được đăng ký.');
+        }
         // mã hóa pass
         //dd(Hash::make($request->password));
 

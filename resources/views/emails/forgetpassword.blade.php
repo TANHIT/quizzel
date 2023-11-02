@@ -66,6 +66,13 @@
                                                     <input type="email" class="form-control" placeholder="Enter Username" name="email">
                                                 </div>
                                             </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-check">
+                                                    
+                                              
+                                                    <a href="{{route('login')}}" class="form-check-label" for="inlineFormCheck">Login</a>
+                                                </div>
+                                            </div>
 
                                       
 

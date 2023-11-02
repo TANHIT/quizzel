@@ -35,9 +35,19 @@
                                 <div class="form-left h-100 py-5 px-5">
 
 
-                                    <form action="" method="POST" class="row g-4">
+                                    <form action="{{ route('register') }}" method="POST" class="row g-4">
                                         @csrf
+                                        @if (session('error'))
+                                            <div class="alert alert-danger">
+                                                {{ session('error') }}
+                                            </div>
+                                        @endif
 
+                                        @if (session('success'))
+                                            <div class="alert alert-success">
+                                                {{ session('success') }}
+                                            </div>
+                                        @endif
                                         <div class="col-12">
                                             <label>Username<span class="text-danger">*</span></label>
                                             <div class="input-group">
@@ -63,11 +73,12 @@
                                         </div>
                                         
                                         <div class="col-12">
-                                            <label>Phone Number<span class="text-danger">*</span></label>
+                                            <label>Confirm Password<span class="text-danger">*</span></label>
                                             <div class="input-group">
-                                                <div class="input-group-text"><i class="bi bi-telephone-fill"></i></div>
-                                                <input type="tel" class="form-control" placeholder="Enter Phone Number">
+                                                <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
+                                                <input type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation">
                                             </div>
+                                            <div id="password-error" class="text-danger"></div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-check">
@@ -97,7 +108,24 @@
             </div>
         </div>
     </div>
-
+        
     <!-- Bootstrap JS -->
 </body>
+    <script>
+        const passwordInput = document.querySelector('input[name="password"]');
+        const confirmPasswordInput = document.querySelector('input[name="password_confirmation"]');
+        const passwordError = document.getElementById('password-error');
+
+        confirmPasswordInput.addEventListener('input', () => {
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+
+            if (password !== confirmPassword) {
+                passwordError.textContent = "Mật khẩu không khớp.";
+            } else {
+                passwordError.textContent = "";
+            }
+        });
+    </script>
+
 </html>

@@ -107,7 +107,7 @@ class VideoController extends Controller
             {
                 $registeredUsers = CourseRegistration::with('user', 'video')
                     // ->where('status', 'pending')
-                    ->paginate(10);
+                    ->paginate(5);
 
                 return view('videos.quanlynguoixem', compact('registeredUsers'))->with('i', ($registeredUsers->currentPage() - 1) * $registeredUsers->perPage());
             }
