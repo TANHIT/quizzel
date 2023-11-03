@@ -101,7 +101,7 @@
                                             <div class="col-sm-6">
                                                 <div class="form-check" style="text-align: center;">
                                                     <a href="{{route('logingoogle')}}" class="form-check-label" for="inlineFormCheck">
-                                                        <img src="images/google.png" alt="Google Logo" style="width: 160px; height: 50px; margin: 0 auto; display: block;">
+                                                        <img src="images/google.png" alt="Google Logo" style="width: 200px; height: 50px; margin: 0 auto; display: block;">
                                                         <span style="display: block; margin-top: 5px; font-weight: bold; color: #4285F4;"></span>
                                                     </a>
                                                 </div>

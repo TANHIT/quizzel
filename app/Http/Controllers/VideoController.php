@@ -56,8 +56,21 @@ class VideoController extends Controller
         public function show($video_id)
         {
             $video = Video::find($video_id); // Lấy thông tin video từ cơ sở dữ liệu
-            return view('videos.show', compact('video'));
+            $listVideos = Video::take(4)->get(); // Lấy danh sách 4 video từ cơ sở dữ liệu
+        
+            if (auth()->check()) {
+                foreach ($listVideos as $listVideo) {
+                    $listVideo->is_pending = false;
+                    if ($listVideo->isPendingForUser(auth()->user())) {
+                        $listVideo->is_pending = true;
+                    }
+                }
+            }
+        
+            return view('videos.show', compact('video', 'listVideos'));
         }
+        
+        
 
 
             public function destroy(Video $video)
@@ -106,7 +119,7 @@ class VideoController extends Controller
             public function quanlynguoixem()
             {
                 $registeredUsers = CourseRegistration::with('user', 'video')
-                    // ->where('status', 'pending')
+                    ->where('status', 'pending')
                     ->paginate(5);
 
                 return view('videos.quanlynguoixem', compact('registeredUsers'))->with('i', ($registeredUsers->currentPage() - 1) * $registeredUsers->perPage());
