@@ -52,7 +52,7 @@
 
 						</ul>
 						@else
-						<a href="{{route('register')}}" class="button primary">Sigin in</a>
+						<a href="{{route('register')}}" class="button primary">Sign up</a>
 						@endif
 
 
